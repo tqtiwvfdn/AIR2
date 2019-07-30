@@ -1,0 +1,825 @@
+﻿@charset "utf-8";
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+    background-color: transparent;
+}
+
+::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    -webkit-transition: background-color linear .5s;
+    border-radius: 4px;
+    box-shadow: #FFF 0 0 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #666;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+html {
+    cursor: default;
+    -webkit-user-select: none;
+    user-select: none;
+    -ms-user-select: none;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+body {
+    font-family: "Segoe UI", "微软雅黑", "DroidSansFallback", "华文细黑";
+    -webkit-tap-highlight-color: transparent; /*iPhone去除点击时的阴影*/
+    -webkit-appearance: none;
+}
+
+/*通用*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Segoe UI Historic", "微软雅黑 Light", "DroidSansFallback", "华文细黑";
+    font-weight: 200;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+input, select, textarea, button {
+    font-family: inherit;
+    font-size: 1rem;
+    font-size: inherit;
+    color: inherit;
+    -ms-user-select: text;
+    -webkit-appearance: none;
+    zoom: 1;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    ime-mode: active;
+    -ms-ime-mode: active;
+}
+
+.hide {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/*表单输入通用样式*/
+.input-label {
+    margin: .5em 0 .25em;
+    line-height: 1.2em;
+    font-size: .9em;
+}
+
+.input-label.input-large {
+    font-size: 1.3rem;
+}
+
+.input-line {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border-width: 0 0 1px 0;
+    border-style: groove;
+}
+
+.input-line.input-large {
+    font-size: 1.1rem;
+}
+
+input.input-line {
+    padding: .25em 0;
+    background-color: transparent;
+    line-height: 1em;
+    text-indent: 1em;
+    transition: background-color .35s linear;
+}
+
+input.input-line.error {
+    -webkit-animation: errorBreath 1.2s linear 5;
+    animation: errorBreath 1.2s linear 5;
+    background-color: rgba(255, 128, 0, .8);
+    box-shadow: rgba(255, 128, 0, .3) 0 0 30px;
+}
+
+@-webkit-keyframes errorBreath {
+    0% {
+        background-color: rgba(255, 128, 0, .3);
+        box-shadow: rgba(255, 128, 0, .5) 0 0 0;
+    }
+
+    50% {
+        background-color: rgba(255, 128, 0, .8);
+        box-shadow: rgba(255, 128, 0, .5) 0 0 30px;
+    }
+
+    100% {
+        background-color: rgba(255, 128, 0, .3);
+        box-shadow: rgba(255, 128, 0, .5) 0 0 0;
+    }
+}
+
+@keyframes errorBreath {
+    0% {
+        background-color: rgba(255, 128, 0, .3);
+        box-shadow: rgba(255, 128, 0, .5) 0 0 0;
+    }
+
+    50% {
+        background-color: rgba(255, 128, 0, .8);
+        box-shadow: rgba(255, 128, 0, .5) 0 0 30px;
+    }
+
+    100% {
+        background-color: rgba(255, 128, 0, .3);
+        box-shadow: rgba(255, 128, 0, .5) 0 0 0;
+    }
+}
+
+.input-line > label {
+    display: inline-block;
+    width: 23%;
+    text-align: center;
+}
+
+.input-line > input {
+    margin: 0;
+    padding: .25em 0;
+    width: 22%;
+    background-color: transparent;
+    text-align: center;
+    line-height: 1em;
+    border: none;
+}
+
+.btn {
+    border: 2px solid rgba(55, 201, 244, 0.2);
+    padding: .25em .5em;
+    background-color: rgba(55, 201, 244, 0.2);
+    transition: background-color, border-color 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    border-radius: 1em;
+}
+
+.btn:hover,
+.btn:active {
+    border-color: rgba(55, 201, 244, 0.88);
+    background-color: rgba(55, 201, 244, 0.88);
+}
+
+.btn-block {
+    display: block;
+    width: 94%;
+    margin: .25em auto;
+}
+
+.btn-large {
+    margin: .5em auto;
+    font-size: 1.1rem;
+}
+
+/*汉堡菜单*/
+.hamburger > span {
+    display: block;
+    margin: 5px;
+    width: 1.2rem;
+    background-color: #FFF;
+    border: 2px solid #FFF;
+    -webkit-transition: -webkit-filter ease .5s;
+    transition: opacity linear .5s;
+    opacity: .8;
+}
+
+.hamburger:hover > span {
+    opacity: 1;
+    -webkit-filter: brightness(1.1);
+}
+
+.hamburger-small > span {
+    margin: 3px;
+    width: .8rem;
+    border-width: 1px;
+}
+
+/*关闭按钮*/
+.close > span {
+    display: block;
+    margin: 3px;
+    width: 1rem;
+    background-color: #FFF;
+    border: 1px solid #FFF;
+    transition: border-color linear .5s;
+    box-shadow: #F00 0 0 11px;
+    cursor: default;
+}
+
+.close:hover > span {
+    border-color: rgba(255, 0, 0, .8);
+    background-color: rgba(255, 0, 0, .8);
+    box-shadow: none;
+}
+
+.close-1 {
+    transform: rotate(45deg) translate(-1px, 7px);
+}
+
+.close-2 {
+    transform: rotate(-45deg) translate(-3.5px, -4.5px);
+}
+
+/*背景*/
+/*占用z-index:1,10001*/
+.bg,
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 1;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-transition: all ease .3s;
+    transition: all ease .3s;
+    overflow: hidden;
+}
+
+.change-background-image {
+    position: fixed;
+    width: 40px;
+    height: 60px;
+    bottom: 0;
+    right: 20px;
+    z-index: 10001;
+}
+
+.change-bg-icon {
+    width: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    transition: all ease .2s;
+}
+
+.change-bg-icon:hover {
+    -webkit-filter: brightness(1.2);
+}
+
+.turn-around {
+    -webkit-animation: turnAround .8s linear infinite;
+    animation: turnAround .8s linear infinite;
+}
+
+@-webkit-keyframes turnAround {
+    0% {
+        -webkit-transform: rotate(-360deg);
+    }
+
+    25% {
+        -webkit-transform: rotate(-270deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(-180deg);
+    }
+
+    75% {
+        -webkit-transform: rotate(-90deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@keyframes turnAround {
+    0% {
+        transform: rotate(-360deg);
+    }
+
+    25% {
+        transform: rotate(-270deg);
+    }
+
+    50% {
+        transform: rotate(-180deg);
+    }
+
+    75% {
+        transform: rotate(-90deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.change-bg-icon-2 {
+    width: 5px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+    background-color: #fefefe;
+}
+
+/*水印，占用z-index 1*/
+.watermark {
+    position: fixed;
+    bottom: 5px;
+    right: 65px;
+    font-size: .9rem;
+    color: #FFF;
+    text-align: right;
+    text-shadow: #000 0 0 10px;
+    z-index: 1;
+}
+
+.watermark * {
+    text-shadow: inherit;
+}
+
+/*侧边栏*/
+/*占用z-index:10002,10003*/
+.aside {
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    padding-top: 3.25em;
+    padding-top: 3.25rem;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 10002;
+    box-sizing: border-box;
+    box-shadow: #808080 0 0 0;
+    overflow: hidden;
+    -webkit-transition: transform .35s ease;
+    transition: transform .35s ease;
+    touch-action: pan-x;
+    color: #FFF;
+}
+
+.aside ::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.aside ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    box-shadow: none;
+}
+
+.aside.out {
+    -webkit-transform: translate(300px);
+    transform: translate(300px);
+    box-shadow: #000000 0 0 12px;
+}
+
+.aside-btn {
+    cursor: pointer;
+    position: fixed;
+    top: .8em;
+    left: 1em;
+    z-index: 10003;
+    opacity: 1;
+    transition: left .35s ease;
+}
+
+.aside-btn.hamburger > span {
+    box-shadow: #CCC 2px 3px 8px;
+}
+
+.aside-btn.hamburger.out > span {
+    box-shadow: none;
+}
+
+.aside-btn.out > .hamburger-1 {
+    transform: rotate(45deg) translate(1px, 5px);
+}
+
+.aside-btn.out > .hamburger-2 {
+    transform: rotate(-45deg) translate(1px, -5px);
+}
+
+.aside-btn.out > .hamburger-3 {
+    display: none;
+}
+
+.aside-btn.out {
+    left: 265px;
+}
+
+/*侧边栏-标题*/
+.aside-title {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: .3em 0 .7em;
+    line-height: 1.2em;
+    text-indent: 1em;
+    background-color: rgba(0, 0, 0, .4);
+    font-size: 1.5rem;
+}
+
+.aside-title > span {
+    margin: 0 1em;
+    padding-bottom: .2em;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.aside-title > .active {
+    border-bottom-color: #FFF;
+}
+
+/*侧边栏-拖放控件*/
+.aside-content {
+    position: absolute;
+    top: 3.25rem;
+    bottom: 0;
+    width: 100%;
+    left: -100%;
+    transition: left cubic-bezier(0.6, -0.28, 0.74, 0.05) .4s;
+    float: left;
+    clear: none;
+}
+
+.aside-content.right {
+    left: 100%;
+    bottom: 2em;
+}
+
+.aside-content.active {
+    left: 0 !important;
+}
+
+.tool-list,
+.menu-list {
+    height: 100%;
+    float: left;
+    clear: none;
+    overflow: hidden;
+    overflow-y: auto;
+    -ms-touch-action: pan-y;
+}
+
+.menu-list {
+    width: 30%;
+    max-width: 30%;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, .3);
+    box-sizing: border-box;
+}
+
+.file-list > li,
+.menu-list > li {
+    padding: .5em 1em .5em .5em;
+    font-size: 1.1rem;
+    transition: background-color ease-out .5s;
+}
+
+.file-list > li:hover,
+.file-list > li:active,
+.menu-list > li:hover,
+.menu-list > .active {
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.tool-list {
+    width: 70%;
+    max-width: 70%;
+    font-size: 1rem;
+}
+
+.tool-list > li {
+    float: left;
+    clear: both;
+    width: 100%;
+    max-width: 100%;
+}
+
+.tool-list > li + li {
+    box-shadow: #ccc 9px 0px 4px;
+}
+
+.file-list {
+    width: 100%;
+}
+
+.file-list > li {
+    position: relative;
+}
+
+.file-list > li > .close {
+    position: absolute;
+    top: .5em;
+    right: 0;
+    opacity: 0;
+    transition: opacity linear .5s;
+}
+
+.file-list > :hover > .close,
+.file-list > :focus > .close,
+.file-list > :active > .close {
+    opacity: 1;
+}
+
+.file-list > li + li {
+    border-top: 1px groove rgba(255, 255, 255, .2);
+}
+
+.file-title {
+    margin: 0;
+    font-size: 1em;
+    text-indent: 1em;
+    line-height: 1.5em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.file-prop {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+    color: #DDD;
+}
+
+/*侧边栏-拖放控件-图标*/
+.tool-icon {
+    display: block;
+    height: 80px;
+    width: 80px;
+    background-image: url('../img/chartIcons.png');
+    cursor: move;
+    font-size: 1rem;
+    background-position: 0px 2px;
+    background-size: 567%;
+    background-repeat: no-repeat;
+}
+
+.tool {
+    float: left;
+    clear: none;
+    margin: .6em;
+}
+
+.tool-icon-line {
+    background-position: -88px 2px;
+}
+
+.tool-icon-pie {
+    background-position: -176px 2px;
+}
+
+.tool-icon-scatterplot {
+    background-position: -262px 1px;
+}
+
+.tool-icon-table {
+    background-position: -348px 1px;
+}
+
+.tool-title {
+    margin: .5em auto;
+    text-align: center;
+    text-shadow: 1px 2px 3px #000;
+}
+
+/*侧边栏-操作*/
+
+.aside-opr {
+    padding: 1em .5em;
+    max-height: 100%;
+    font-size: 1rem;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+/*主面板*/
+/*占用z-index:2,预计可用z-index=3~9999*/
+.article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    overflow: auto;
+    -ms-touch-action: pan-x pan-y;
+    touch-action: pan-x pan-y;
+    zoom: 1;
+    z-index: 2;
+}
+
+/*控件-容器*/
+.tool-container {
+    position: absolute;
+    padding-top: 2.35em;
+    width: 300px;
+    min-height: 10px;
+    min-width: 250px;
+    top: 100px;
+    right: 200px;
+    transition: box-shadow linear .35s;
+    border-bottom: 1em solid rgba(255, 255, 255, .95);
+    box-shadow: rgba(0, 0, 0, .5) 5px 5px 22px;
+    border-radius: 5px;
+    touch-action: none;
+}
+
+.tool-container:hover {
+    box-shadow: rgba(0, 0, 0, .5) 5px 5px 5px;
+}
+
+/*控件-标题栏*/
+.tool-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: .5em 0;
+    width: 100%;
+    text-indent: 1em;
+    background-image: linear-gradient(10deg, #FFF, rgba(255, 255, 255, .6) 80%, transparent);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    line-height: 1.375em;
+    text-align: left;
+    cursor: move;
+}
+
+.tool-banner-title {
+    display: block;
+    padding: 0 2em 0 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*控件-标题栏-菜单汉堡按钮*/
+/*占用z-index：10000*/
+.tool-banner > .hamburger {
+    position: absolute;
+    left: .5em;
+    top: 0;
+    padding: .7em 0;
+    cursor: default;
+    z-index: 10000;
+}
+
+.tool-banner > .hamburger > span {
+    border-color: #666;
+    background-color: #666;
+}
+
+/*控件-标题栏-菜单选项面板*/
+/*占用z-index：10000*/
+.menu-option {
+    display: none;
+    position: absolute;
+    top: 2em;
+    left: .5em;
+    padding: .25em 1em 2em;
+    width: 250px;
+    color: #FFF;
+    background-color: rgba(68, 68, 68, 0.95);
+    box-shadow: #666 2px 9px 20px;
+    overflow: auto;
+    z-index: 10000; /*避免点击时，z-index比resize-bottom低且置顶功能的需要*/
+}
+
+/*控件-标题栏-关闭按钮*/
+.tool-banner > .close {
+    position: absolute;
+    top: .6em;
+    right: .5em;
+    /*padding: .7em 0;*/
+    cursor: default;
+    z-index: 10000;
+}
+
+/*控件-主内容*/
+.tool-content {
+    padding: 1em 2em 0;
+    background-color: rgba(255, 255, 255, .95);
+    overflow: auto;
+    height: 100%;
+}
+
+.tool-content-hide {
+    position: relative;
+    left: -200%;
+}
+
+/*改变控件容器大小*/
+.resize-left,
+.resize-right {
+    position: absolute;
+    top: 0;
+    width: 4em;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+.resize-left {
+    left: -2em;
+}
+
+.resize-right {
+    right: -2em;
+}
+
+.resize-bottom {
+    position: absolute;
+    bottom: -3em;
+    height: 4em;
+    width: 100%;
+    cursor: ns-resize;
+}
+
+/*表格控件*/
+.tool-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tool-table th,
+.tool-table td {
+    border: 1px solid;
+}
+
+@media screen and (min-width: 480px) {
+
+    .aside {
+        width: 350px;
+        left: -350px;
+    }
+
+    .aside.out {
+        -webkit-transform: translate(350px);
+        transform: translate(350px);
+    }
+
+    .aside-btn.hamburger > span {
+        margin: 7px;
+        width: 2rem;
+        border-width: 2px;
+    }
+
+    .aside-btn.out {
+        left: 305px;
+    }
+
+    .aside-btn.out > .hamburger-1,
+    .aside-btn.out > .hamburger-2 {
+        border-width: 1px;
+    }
+
+    .tool-icon {
+        height: 100px;
+        width: 100px;
+        background-size: 567%;
+    }
+
+    .tool-icon-line {
+        background-position: -110px 2px;
+    }
+
+    .tool-icon-pie {
+        background-position: -220px 2px;
+    }
+
+    .tool-icon-scatterplot {
+        background-position: -328px 2px;
+    }
+
+    .tool-icon-table {
+        background-position: -436px 1px;
+    }
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>拖放测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta content="minimal-ui" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="hide">
+<!--侧边栏 Start-->
+<div id="asideBtn" class="aside-btn hamburger">
+    <span class="hamburger-1"></span>
+    <span class="hamburger-3"></span>
+    <span class="hamburger-2"></span>
+</div>
+<aside id="aside" class="aside">
+    <h3 class="aside-title">
+        <span data-href="#tools" class="active">拖放控件</span>
+        <span data-href="#opr">操作</span>
+    </h3>
+    <div id="tools" class="aside-content left active">
+        <ul class="menu-list">
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+            <li title="ECharts" data-target="#ECharts">ECharts</li>
+            <li title="表格" data-target="#table">表格</li>
+        </ul>
+        <ul class="tool-list" id="toolList">
+            <li data-role="#ECharts">
+                <p class="tool-title">ECharts</p>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-bar" draggable="true"></div>
+                    <p class="tool-title">柱状图</p>
+                </div>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-line" draggable="true"></div>
+                    <p class="tool-title">折线图</p>
+                </div>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-pie" draggable="true"></div>
+                    <p class="tool-title">饼图</p>
+                </div>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-scatterplot" draggable="true"></div>
+                    <p class="tool-title">散点图</p>
+                </div>
+            </li>
+            <li data-role="#table">
+                <p class="tool-title">表格</p>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-table" draggable="true"></div>
+                    <p class="tool-title">表格</p>
+                </div>
+            </li>
+            <li data-role="#ECharts">
+                <p class="tool-title">ECharts</p>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-bar" draggable="true"></div>
+                    <p class="tool-title">柱状图</p>
+                </div>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-line" draggable="true"></div>
+                    <p class="tool-title">折线图</p>
+                </div>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-pie" draggable="true"></div>
+                    <p class="tool-title">饼图</p>
+                </div>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-scatterplot" draggable="true"></div>
+                    <p class="tool-title">散点图</p>
+                </div>
+            </li>
+            <li data-role="#table">
+                <p class="tool-title">表格</p>
+                <div class="tool">
+                    <div class="tool-icon tool-icon-table" draggable="true"></div>
+                    <p class="tool-title">表格</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="opr" class="aside-content right">
+        <div class="aside-opr">
+            <h4 class="input-label input-large">保存*</h4>
+            <input class="input-line input-large" name="config" type="text" placeholder="配置名" />
+            <button id="saveConfigBtn" type="button" class="btn btn-block btn-large">保存</button>
+            <hr/>
+            <h4 class="input-label input-large">以往配置</h4>
+            <ul class="file-list" id="fileList"></ul>
+        </div>
+    </div>
+</aside>
+<!--侧边栏 End-->
+<!--主面板 Start-->
+<article id="article" class="article"></article>
+<!--主界面-->
+<!--背景-->
+<div id="bg" class="bg"></div>
+<div id="watermark" class="watermark">
+    <div data-role="buildCode">Build 14_branch_1_201507201314</div>
+    <div data-role="bgPath"></div>
+</div>
+<div class="change-background-image">
+    <div class="change-bg-icon-2"></div>
+    <img id="changeBgIcon" src="./img/changeBgIcon.png" title="换张壁纸" class="change-bg-icon">
+</div>
+<!--背景-->
+<!--配置文件列表 temp-->
+<ul class="hide" id="fileListTemp">
+    <li data-href="{href}" title="{title}">
+        <h5 class="file-title">{title}</h5>
+        <span class="file-prop">创建时间：{time}</span>
+        <div class="close" title="删除">
+            <span class="close-1"></span>
+            <span class="close-2"></span>
+        </div>
+    </li>
+    <li data-role="noRecord" style="background-color:transparent !important;">无以往配置文件</li>
+</ul>
+<!--配置文件列表 temp-->
+<!--控件Temp-->
+<div id="toolTemp" class="hide">
+    <div class="tool-container" id="{toolTempContainerID}">
+        <div class="tool-banner" title="{toolBannerTitle}">
+            <span data-role="title" class="tool-banner-title">{toolBannerTitle}</span>
+            <div class="hamburger hamburger-small" title="菜单">
+                <span class="hamburger-child"></span>
+                <span class="hamburger-child"></span>
+                <span class="hamburger-child"></span>
+            </div>
+            <div class="close" title="关闭">
+                <span class="close-1"></span>
+                <span class="close-2"></span>
+            </div>
+        </div>
+        <div class="menu-option">
+            <h4 class="input-label">标题</h4>
+            <input class="input-line" type="text" data-id="toolContainerTitle" data-inputer="title" />
+            <h4 class="input-label">大小（像素）</h4>
+            <div class="input-line">
+                <label>高度</label>
+                <input type="text" data-id="toolContainerHeight" data-inputer="height" />
+                <label>宽度</label>
+                <input type="text" data-id="toolContainerWidth" data-inputer="width" />
+            </div>
+            <h4 class="input-label">位置（像素）</h4>
+            <div class="input-line">
+                <label>居顶</label>
+                <input type="text" data-id="toolContainerTop" data-inputer="top" />
+                <label>居左</label>
+                <input type="text" data-id="toolContainerLeft" data-inputer="left" />
+            </div>
+        </div>
+        <div class="tool-content">{toolTempContent}</div>
+        <div class="resize-left"></div>
+        <div class="resize-right"></div>
+        <div class="resize-bottom"></div>
+    </div>
+</div>
+<!--控件Temp-->
+<!--表格 Temp-->
+<div id="tableTemp" class="hide">
+    <table class="tool-table">
+        <thead>
+        <tr>
+            <th>标题</th>
+            <th>标题</th>
+            <th>标题</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>数据</td>
+            <td>数据</td>
+            <td>数据</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--表格 Temp-->
+<script type="text/javascript" src="./lib/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="./lib/echarts-all.js"></script>
+<script type="text/javascript" src="./lib/drag.js" charset="utf-8"></script>
+</body>
+</html>
+
